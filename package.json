@@ -1,0 +1,15 @@
+{
+  "name": "jitterbox",
+  "version": "0.2.0",
+  "description": "The Jitterbox CLI: create fake APIs, break them on purpose, and grade how your client copes. Built for people, CI and coding agents.",
+  "type": "module",
+  "bin": { "jitterbox": "bin/jitterbox.mjs" },
+  "files": ["bin", "src", "AGENTS.md", "README.md", "LICENSE"],
+  "engines": { "node": ">=18" },
+  "scripts": { "test": "node --test test/*.test.mjs" },
+  "dependencies": { "yaml": "^2.9.1" },
+  "keywords": ["api", "mock", "fault-injection", "chaos", "testing", "cli", "jitterbox"],
+  "homepage": "https://jitterbox.xyz",
+  "repository": { "type": "git", "url": "git+https://github.com/MadhavKauntia/jitterbox-cli.git" },
+  "license": "MIT"
+}

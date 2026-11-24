@@ -1,0 +1,71 @@
+name: Jitterbox resilience
+description: Run your tests against a Jitterbox failure scenario and fail the job when your client handles failures badly.
+branding:
+  icon: activity
+  color: purple
+inputs:
+  token:
+    description: A project API key (Settings → API keys) or a personal token. Store it as a secret.
+    required: true
+  scenario:
+    description: Scenario name or id. Several are allowed, one per line or comma-separated.
+    required: true
+  command:
+    description: The test command to run, e.g. "npm test". JITTERBOX_BASE_URL is set for it.
+    required: true
+  api-url:
+    description: Jitterbox URL.
+    required: false
+    default: https://jitterbox.xyz
+  fail-on:
+    description: "What fails the job: fail (default; warnings allowed) or warn."
+    required: false
+    default: fail
+  require:
+    description: Checks that must pass, comma-separated (e.g. respects-retry-after,backs-off).
+    required: false
+    default: ""
+  allow-empty:
+    description: Don't fail when no requests reached Jitterbox.
+    required: false
+    default: "false"
+  wait:
+    description: Seconds to wait for another run holding the project's lease.
+    required: false
+    default: "600"
+  working-directory:
+    description: Where to run the command.
+    required: false
+    default: "."
+  junit:
+    description: Optional path to write a JUnit XML report.
+    required: false
+    default: ""
+outputs:
+  result:
+    description: passed or failed
+    value: ${{ steps.run.outputs.result }}
+  exit-code:
+    description: The jitterbox CLI exit code (0 passed, 3 report failed, 4 no traffic, 5 lease timeout, else the command's code)
+    value: ${{ steps.run.outputs.exit-code }}
+  report:
+    description: Path to the JSON report
+    value: ${{ steps.run.outputs.report }}
+runs:
+  using: composite
+  steps:
+    - id: run
+      shell: bash
+      working-directory: ${{ inputs.working-directory }}
+      env:
+        JITTERBOX_TOKEN: ${{ inputs.token }}
+        JITTERBOX_API: ${{ inputs.api-url }}
+        INPUT_SCENARIO: ${{ inputs.scenario }}
+        INPUT_COMMAND: ${{ inputs.command }}
+        INPUT_FAIL_ON: ${{ inputs.fail-on }}
+        INPUT_REQUIRE: ${{ inputs.require }}
+        INPUT_ALLOW_EMPTY: ${{ inputs.allow-empty }}
+        INPUT_WAIT: ${{ inputs.wait }}
+        INPUT_JUNIT: ${{ inputs.junit }}
+        JITTERBOX_CLI: ${{ github.action_path }}/bin/jitterbox.mjs
+      run: bash "${{ github.action_path }}/action/run.sh"
