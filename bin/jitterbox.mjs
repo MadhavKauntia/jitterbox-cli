@@ -2,6 +2,7 @@
 // The Jitterbox CLI. See README.md, or `jitterbox guide` for the version written for coding agents.
 
 import { parseArgs } from "../src/args.mjs";
+import { VERSION } from "../src/api.mjs";
 import { makeContext } from "../src/context.mjs";
 import { CliError, UsageError } from "../src/errors.mjs";
 import { login, logout, whoami } from "../src/commands/auth.mjs";
@@ -98,7 +99,7 @@ async function main() {
       return 0;
     }
     if (name === "--version" || name === "-v" || name === "version") {
-      console.log("0.2.0");
+      console.log(VERSION);
       return 0;
     }
     const cmd = COMMANDS[name];

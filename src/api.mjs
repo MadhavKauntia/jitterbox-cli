@@ -1,7 +1,7 @@
 import { CliError, apiError } from "./errors.mjs";
 
 export const DEFAULT_API = "https://jitterbox.xyz";
-const VERSION = "0.2.0";
+export const VERSION = "0.3.0";
 
 /** A small client for the Jitterbox API. `token` may be absent (sign-in calls). */
 export function makeClient({ apiUrl, token }) {

@@ -56,6 +56,10 @@ or add a line to your own `AGENTS.md` / `CLAUDE.md`:
 
 > To mock or break third-party APIs in tests, use the Jitterbox CLI. Run `npx jitterbox guide` first.
 
+To have an agent set up a project from your code (find the APIs it calls, create endpoints and failure scenarios, point
+the tests at them), copy the prompt from **Set up with your coding agent** in the dashboard, or ask it to follow the
+"Set up from a codebase" section of `npx jitterbox guide`.
+
 ## Signing in
 
 - `jitterbox login` opens the browser to approve the CLI and saves a personal token in
