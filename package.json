@@ -1,6 +1,6 @@
 {
   "name": "jitterbox",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "The Jitterbox CLI: create fake APIs, break them on purpose, and grade how your client copes. Built for people, CI and coding agents.",
   "type": "module",
   "bin": {
@@ -31,7 +31,7 @@
     "cli",
     "jitterbox"
   ],
-  "homepage": "https://jitterbox.xyz",
+  "homepage": "https://jitterbox.dev",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/MadhavKauntia/jitterbox-cli.git"

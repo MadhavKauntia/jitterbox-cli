@@ -16,7 +16,7 @@ inputs:
   api-url:
     description: Jitterbox URL.
     required: false
-    default: https://jitterbox.xyz
+    default: https://jitterbox.dev
   fail-on:
     description: "What fails the job: fail (default; warnings allowed) or warn."
     required: false

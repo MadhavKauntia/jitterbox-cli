@@ -1,6 +1,6 @@
 # Jitterbox CLI
 
-Fake APIs that break on purpose. [Jitterbox](https://jitterbox.xyz) gives you a fake version of an API at a real
+Fake APIs that break on purpose. [Jitterbox](https://jitterbox.dev) gives you a fake version of an API at a real
 URL, then makes it slow, flaky or broken on purpose so you can see how your code copes. This CLI does everything the
 dashboard does, so you (or a coding agent like Claude Code or Codex) can set it up from a terminal, and it runs your
 tests against failure scenarios in CI.
@@ -67,7 +67,7 @@ the tests at them), copy the prompt from **Set up with your coding agent** in th
   **Settings → Account → Personal tokens**.
 - `JITTERBOX_TOKEN` (or `--token`) overrides the saved token: use a personal token (`jbp_…`) for everything, or a
   project API key (`jb_…`, Settings → API keys) for CI, which can only switch scenarios and read results.
-- `JITTERBOX_API` (or `--api`) points at another Jitterbox (default https://jitterbox.xyz).
+- `JITTERBOX_API` (or `--api`) points at another Jitterbox (default https://jitterbox.dev).
 
 ## Commands
 

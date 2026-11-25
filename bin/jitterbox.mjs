@@ -15,7 +15,7 @@ import { CI_FLAGS, report, run } from "../src/commands/ci.mjs";
 import { DEFAULT_FILE, SPEC_FLAGS, apply, diff, pull, specProjectHint } from "../src/commands/spec.mjs";
 import { guide } from "../src/commands/guide.mjs";
 
-const HELP = `jitterbox: fake APIs that break on purpose. https://jitterbox.xyz
+const HELP = `jitterbox: fake APIs that break on purpose. https://jitterbox.dev
 
 Usage: jitterbox <command> [options]          (add --json to any command for machine-readable output)
 
